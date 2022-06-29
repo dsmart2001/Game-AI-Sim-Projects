@@ -267,3 +267,316 @@ Received Import Request.
 Start importing Assets/Prefabs/Environment using Guid(48b40164e3139654d949d0ee6408a87e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5e4b5ed8c59a92353af5bb781432460') in 0.003543 seconds
   Import took 0.005285 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001714 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+Temp/RoslynAnalysisRunner has been deleted.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.857 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1116 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.2 MB.
+System memory in use after: 57.3 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1569.
+Total: 2.023900 ms (FindLiveObjects: 0.166500 ms CreateObjectMapping: 0.044300 ms MarkObjects: 1.753600 ms  DeleteObjects: 0.058200 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003959 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.798 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1236 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 64.8 MB.
+System memory in use after: 62.9 MB.
+
+Unloading 34 unused Assets to reduce memory usage. Loaded Objects now: 1665.
+Total: 2.159900 ms (FindLiveObjects: 0.147600 ms CreateObjectMapping: 0.034800 ms MarkObjects: 1.409300 ms  DeleteObjects: 0.567400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1077.340562 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Road_Damage_01.FBX
+  artifactKey: Guid(1db723d3ad1303b499433323d318eedd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Road_Damage_01.FBX using Guid(1db723d3ad1303b499433323d318eedd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69b7eb3abc7b71a259f398caa2ffd579') in 0.813686 seconds
+  Import took 0.816640 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000440 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_Bridge_03.FBX
+  artifactKey: Guid(38033124a7b0b814a83c0852e487d32f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_Bridge_03.FBX using Guid(38033124a7b0b814a83c0852e487d32f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e559dcba85f0a85c7f16558f63e8f9b1') in 0.051773 seconds
+  Import took 0.054101 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000451 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_01_Straight.FBX
+  artifactKey: Guid(c8e60db5f0d66d1429b92cad28763577) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_01_Straight.FBX using Guid(c8e60db5f0d66d1429b92cad28763577) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb7e662f3561bf3dc96956e8d34c7040') in 0.243247 seconds
+  Import took 0.245798 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000436 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_Bridge_02.FBX
+  artifactKey: Guid(5883ebfdae88c674facf3682d5c216b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_Bridge_02.FBX using Guid(5883ebfdae88c674facf3682d5c216b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4eebb7d302f9f4b5000b4e105ea7e3e') in 0.033809 seconds
+  Import took 0.036268 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000449 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Road_Damage_04.FBX
+  artifactKey: Guid(7b862f296b9c06f46b1d7fd51e7b6853) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Road_Damage_04.FBX using Guid(7b862f296b9c06f46b1d7fd51e7b6853) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c88393c84f955cbe1bb3e4a05a5b0189') in 0.044869 seconds
+  Import took 0.047617 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000461 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_02_L.FBX
+  artifactKey: Guid(87df1afdd10ab9a4f925edfcda7c707d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_02_L.FBX using Guid(87df1afdd10ab9a4f925edfcda7c707d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '425ff0d809eae074687fc2c23057550c') in 0.034485 seconds
+  Import took 0.036809 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000437 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_Bridge_01.FBX
+  artifactKey: Guid(1374c8c84d47a33448510c682d1b35ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_Bridge_01.FBX using Guid(1374c8c84d47a33448510c682d1b35ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b8f218f15c7ff1501b2b70fc1f912e3') in 0.038490 seconds
+  Import took 0.041108 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000466 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_05_Hill.FBX
+  artifactKey: Guid(ce77e9bc06a759e418e039646122570c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_05_Hill.FBX using Guid(ce77e9bc06a759e418e039646122570c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42c644d4385d1e2990b6a7e497a997d8') in 0.032181 seconds
+  Import took 0.034529 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000442 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_Frame_01.FBX
+  artifactKey: Guid(54e90374416a6bc439bf30fe3100dabb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_Frame_01.FBX using Guid(54e90374416a6bc439bf30fe3100dabb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f16dfb40cce9093c1f932b6c6740fe40') in 0.018297 seconds
+  Import took 0.020207 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000509 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_03_Cross.FBX
+  artifactKey: Guid(e25cfb642dd74dc40be6f2a40b597a27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_03_Cross.FBX using Guid(e25cfb642dd74dc40be6f2a40b597a27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ce75bba82babb757e22bce054487a70') in 0.030899 seconds
+  Import took 0.033183 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000350 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Road_Damage_03.FBX
+  artifactKey: Guid(b90eed134d6e2f247a5a95702f01e0e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Road_Damage_03.FBX using Guid(b90eed134d6e2f247a5a95702f01e0e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7589083a80eee75605651bea426f5ef2') in 0.026736 seconds
+  Import took 0.028954 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000341 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_04_Curve.FBX
+  artifactKey: Guid(3711b6414f5c10c4eb53f9a6a5b15d52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Roads_04_Curve.FBX using Guid(3711b6414f5c10c4eb53f9a6a5b15d52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c968ce1e4ea6d7fe5ad84863613f2f30') in 0.030540 seconds
+  Import took 0.032837 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000353 seconds.
+  path: Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Road_Damage_02.FBX
+  artifactKey: Guid(1e8ebe2ac2f1f3a45a974cd8f69dd147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Apocalyptic_World/Art/StaticMesh/Roads/SM_Road_Damage_02.FBX using Guid(1e8ebe2ac2f1f3a45a974cd8f69dd147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd1419fcb32c22a56c7dac7ac446f8f7') in 0.026206 seconds
+  Import took 0.028355 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.950898 seconds.
+  path: Assets/Asset Store/Apocalyptic_World/Art/Textures/Rock_01.bmp
+  artifactKey: Guid(d644c824e68292c4f82479ee7c94bdbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Asset Store/Apocalyptic_World/Art/Textures/Rock_01.bmp using Guid(d644c824e68292c4f82479ee7c94bdbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c49b221a34649a9ebae478ea207f967') in 0.051152 seconds
+  Import took 0.053181 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000433 seconds.
+  path: Assets/Asset Store/Apocalyptic_World/Prefabs/Prefabs_SingleMeshes/Rocks/SM_Rock_02.prefab
+  artifactKey: Guid(302c10c91af28cf46bae42b40fa5eec3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Asset Store/Apocalyptic_World/Prefabs/Prefabs_SingleMeshes/Rocks/SM_Rock_02.prefab using Guid(302c10c91af28cf46bae42b40fa5eec3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '286028600cafd8aab6715d962ec18328') in 0.020703 seconds
+  Import took 0.022602 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000401 seconds.
+  path: Assets/Asset Store/Apocalyptic_World/Art/Materials/Rock_2.mat
+  artifactKey: Guid(21074853660a6b148a60ad90bd9a0ba0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Asset Store/Apocalyptic_World/Art/Materials/Rock_2.mat using Guid(21074853660a6b148a60ad90bd9a0ba0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8dc3abce4f36a62bc9481232c6ed2e34') in 0.111525 seconds
+  Import took 0.113395 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000447 seconds.
+  path: Assets/Asset Store/Apocalyptic_World/Art/StaticMesh/Rocks/SM_Rock_01.FBX
+  artifactKey: Guid(bfe0aa965a4dadd4d8503a779344790f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Asset Store/Apocalyptic_World/Art/StaticMesh/Rocks/SM_Rock_01.FBX using Guid(bfe0aa965a4dadd4d8503a779344790f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73441003005cd62238f543fb9f7b243d') in 0.070706 seconds
+  Import took 0.075098 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000392 seconds.
+  path: Assets/Asset Store/Apocalyptic_World/Prefabs/Prefabs_SingleMeshes/Rocks/SM_Rock_01.prefab
+  artifactKey: Guid(19af2d7782962034b888da4a19c00981) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Asset Store/Apocalyptic_World/Prefabs/Prefabs_SingleMeshes/Rocks/SM_Rock_01.prefab using Guid(19af2d7782962034b888da4a19c00981) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '929ff3a9d2cf53be4e4f528a23670297') in 0.043325 seconds
+  Import took 0.047352 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000380 seconds.
+  path: Assets/Asset Store/Apocalyptic_World/Art/Textures/Rock_01_n.bmp
+  artifactKey: Guid(3b434385c3e072a46bd525a25de72310) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Asset Store/Apocalyptic_World/Art/Textures/Rock_01_n.bmp using Guid(3b434385c3e072a46bd525a25de72310) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2bac164bd84e68c4249329a18fc77b5') in 0.020656 seconds
+  Import took 0.022706 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000344 seconds.
+  path: Assets/Asset Store/Apocalyptic_World/Art/StaticMesh/Rocks/SM_Rock_02.FBX
+  artifactKey: Guid(939b1caa11237f14a96c20af39eb58a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Asset Store/Apocalyptic_World/Art/StaticMesh/Rocks/SM_Rock_02.FBX using Guid(939b1caa11237f14a96c20af39eb58a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '710632711deaf46a4263e4c8f5205b5a') in 0.032308 seconds
+  Import took 0.034176 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000356 seconds.
+  path: Assets/Asset Store/Apocalyptic_World/Art/StaticMesh/Rocks/SM_Rock_01.FBX
+  artifactKey: Guid(bfe0aa965a4dadd4d8503a779344790f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Asset Store/Apocalyptic_World/Art/StaticMesh/Rocks/SM_Rock_01.FBX using Guid(bfe0aa965a4dadd4d8503a779344790f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73441003005cd62238f543fb9f7b243d') in 0.065022 seconds
+  Import took 0.069066 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001789 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invalid AssetDatabase path: /Editor/EditorResources/cm_logo_sm.png. Use path relative to the project folder.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:LoadAssetAtPath<UnityEngine.Texture2D> (string)
+Cinemachine.Editor.CinemachineSettings:get_CinemachineLogoTexture () (at Library/PackageCache/com.unity.cinemachine@2.6.15/Editor/Windows/CinemachineSettings.cs:205)
+Cinemachine.Editor.CinemachineSettings:.cctor () (at Library/PackageCache/com.unity.cinemachine@2.6.15/Editor/Windows/CinemachineSettings.cs:261)
+Cinemachine.CinemachineColliderPrefs:.cctor () (at Library/PackageCache/com.unity.cinemachine@2.6.15/Editor/Windows/CinemachineColliderPrefs.cs:61)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.cinemachine@2.6.15/Editor/Windows/CinemachineSettings.cs line 205]
+
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Invalid AssetDatabase path: /Editor/EditorResources/cm_logo_sm.png. Use path relative to the project folder.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:LoadAssetAtPath<UnityEngine.Texture2D> (string)
+Cinemachine.Editor.CinemachineSettings:get_CinemachineLogoTexture () (at Library/PackageCache/com.unity.cinemachine@2.6.15/Editor/Windows/CinemachineSettings.cs:205)
+Cinemachine.Editor.CinemachineSettings:OnPackageLoadedInEditor () (at Library/PackageCache/com.unity.cinemachine@2.6.15/Editor/Windows/CinemachineSettings.cs:246)
+
+[Library/PackageCache/com.unity.cinemachine@2.6.15/Editor/Windows/CinemachineSettings.cs line 205]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.804 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1383 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 75.0 MB.
+System memory in use after: 73.0 MB.
+
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 1861.
+Total: 2.526600 ms (FindLiveObjects: 0.168700 ms CreateObjectMapping: 0.063500 ms MarkObjects: 1.707500 ms  DeleteObjects: 0.585500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002734 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.027 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1745 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.7 MB.
+System memory in use after: 85.8 MB.
+
+Unloading 59 unused Assets to reduce memory usage. Loaded Objects now: 2204.
+Total: 3.539400 ms (FindLiveObjects: 0.200500 ms CreateObjectMapping: 0.071200 ms MarkObjects: 1.515700 ms  DeleteObjects: 1.751000 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.012587 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 58.60 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.606 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.81 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2205 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.9 MB.
+System memory in use after: 106.9 MB.
+
+Unloading 72 unused Assets to reduce memory usage. Loaded Objects now: 2656.
+Total: 11.144800 ms (FindLiveObjects: 0.795200 ms CreateObjectMapping: 0.416400 ms MarkObjects: 5.479800 ms  DeleteObjects: 4.448800 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
