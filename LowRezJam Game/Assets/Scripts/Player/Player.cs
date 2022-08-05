@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float energy = 1;
     public float jumpForce = 5;
     public float moveSpeed = 1;
+    public float attackForce = 10;
 
     private Vector2 moveDirection = Vector2.zero;
     public PlayerInput input => GetComponent<PlayerInput>();
@@ -36,6 +37,17 @@ public class Player : MonoBehaviour
     public void OnMove(InputValue direction)
     {
         moveDirection = direction.Get<Vector2>();
+
+        if(moveDirection.x < 0)
+        {
+            transform.rotation = new Quaternion(0f, -180f, 0f, 0f);
+        }
+        else if(moveDirection.x > 0)
+        {
+            transform.rotation = new Quaternion(0f, -0f, 0f, 0f);
+        }
+        Debug.Log("MOVING " + moveDirection);
+
     }
 
     public void OnJump()
@@ -47,5 +59,7 @@ public class Player : MonoBehaviour
     public void OnAttack()
     {
         Debug.Log("NINJA ATTACK");
+        CameraShake.Shake();
+        rb.AddForce(new Vector2(moveDirection.x * attackForce, moveDirection.y * attackForce));
     }
 }
