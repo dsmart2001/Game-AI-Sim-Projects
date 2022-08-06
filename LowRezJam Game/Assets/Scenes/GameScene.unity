@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23745245, g: 0.15006468, b: 0.5338829, a: 1}
+  m_IndirectSpecularColor: {r: 0.26304623, g: 0.17158908, b: 0.59294957, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -704,7 +704,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 548629770}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a17200221ac51df489a1275cc6c73015, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1170,7 +1170,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.01
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: abdab979ef26d6d4b91ec6ec8417571f, type: 2}
   m_Interpolate: 0
@@ -1191,9 +1191,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   energy: 1
-  jumpForce: 500
-  moveSpeed: 20
+  jumpForce: 525
+  moveSpeed: 30
   attackForce: 10
+  gravity: 11
+  crouchDivision: 2
 --- !u!114 &934412196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1714,7 +1716,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1686187122}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a17200221ac51df489a1275cc6c73015, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1917,7 +1919,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1744861801}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a17200221ac51df489a1275cc6c73015, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2087,7 +2089,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1992959477}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a17200221ac51df489a1275cc6c73015, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
