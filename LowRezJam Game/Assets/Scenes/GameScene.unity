@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26304623, g: 0.17158908, b: 0.59294957, a: 1}
+  m_IndirectSpecularColor: {r: 0.3239926, g: 0.21969348, b: 0.7241184, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   energy: 1
-  jumpForce: 525
+  jumpForce: 550
   moveSpeed: 30
   attackForce: 10
   gravity: 11
@@ -1603,10 +1603,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1146145751}
-  - component: {fileID: 1146145753}
   - component: {fileID: 1146145752}
+  - component: {fileID: 1146145754}
+  - component: {fileID: 1146145753}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1651,7 +1652,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8c4e79165da88a3409a194dd904c02fc, type: 3}
+  m_Sprite: {fileID: 8273387315055279964, guid: 8e6a1c00f0207d14985066096efc5f10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1669,6 +1670,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146145750}
   m_CullTransparentMesh: 1
+--- !u!114 &1146145754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146145750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55401fd25deeed44a55c18d699e7b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 8273387315055279964, guid: 8e6a1c00f0207d14985066096efc5f10, type: 3}
+  - {fileID: 321641778632532647, guid: 8e6a1c00f0207d14985066096efc5f10, type: 3}
+  - {fileID: 5741467872432226072, guid: 8e6a1c00f0207d14985066096efc5f10, type: 3}
+  - {fileID: -8216100110582926358, guid: 8e6a1c00f0207d14985066096efc5f10, type: 3}
+  spritePerFrame: 6
+  loop: 1
+  destroyOnEnd: 0
 --- !u!1 &1686187122
 GameObject:
   m_ObjectHideFlags: 0
