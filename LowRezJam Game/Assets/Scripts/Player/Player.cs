@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     // Property values
     private bool inputMovement = true;
     private bool extraGravity = true;
+    public bool grounded = true;
     private Vector2 moveDirection = Vector2.zero;
 
     // Crouch scale values
@@ -95,10 +96,12 @@ public class Player : MonoBehaviour
 
     private void OnJump(InputValue jumpValue)
     {
-        rb.AddForce(Vector2.up * jumpForce);
-
-        extraGravity = (jumpValue.Get<float>() != 1);
-        Debug.Log("JUMP " + jumpValue.Get<float>());
+        if(grounded)
+        {
+            rb.AddForce(Vector2.up * jumpForce);
+            extraGravity = (jumpValue.Get<float>() != 1);
+            Debug.Log("JUMP " + jumpValue.Get<float>());
+        }
     }
 
     private void OnAttack()

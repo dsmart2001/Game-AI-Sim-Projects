@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Player player => GetComponent<Player>();
+
+    private void OnCollisionEnter2D(Collision2D c)
     {
-        
+        if(c.gameObject.tag == "Ground")
+        {
+            player.grounded = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionStay2D(Collision2D c)
     {
-        
+        if (c.gameObject.tag == "Ground")
+        {
+            player.grounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D c)
+    {
+        if (c.gameObject.tag == "Ground")
+        {
+            player.grounded = false;
+        }
     }
 }
