@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38993296, g: 0.27053383, b: 0.8652106, a: 1}
+  m_IndirectSpecularColor: {r: 0.23577464, g: 0.14736497, b: 0.5250942, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1172,8 +1172,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.5, y: 0}
-  m_SizeDelta: {x: 7.5, y: 10}
+  m_AnchoredPosition: {x: 0.349, y: -0.0000000023283}
+  m_SizeDelta: {x: 7.5, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &831693054
 MonoBehaviour:
@@ -1409,7 +1409,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.01
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: abdab979ef26d6d4b91ec6ec8417571f, type: 2}
@@ -1432,10 +1432,10 @@ MonoBehaviour:
   attackColl: {fileID: 1088213590}
   health: 100
   energy: 1
-  jumpForce: 1000
+  jumpForce: 1250
   moveSpeed: 30
-  attackForce: 50
-  gravity: 30
+  attackForce: 65
+  gravity: 50
   grounded: 1
   gravityTimer: 0.8
   crouchDivision: 2

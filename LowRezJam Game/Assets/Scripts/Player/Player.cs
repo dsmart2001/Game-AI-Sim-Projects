@@ -103,6 +103,7 @@ public class Player : MonoBehaviour
             inputMovement = true;
         }
 
+
         // Get Movement to move
         if(inputMovement)
         {
@@ -113,10 +114,22 @@ public class Player : MonoBehaviour
         if (moveDirection.x < 0)
         {
             transform.rotation = new Quaternion(0f, -180f, 0f, 0f);
+
+            // Dampen force on changing inputs for quick turns
+            if (rb.velocity.x < 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x / 3, rb.velocity.y);
+            }
         }
         else if (moveDirection.x > 0)
         {
             transform.rotation = new Quaternion(0f, -0f, 0f, 0f);
+
+            // Dampen force on changing inputs for quick turns
+            if (rb.velocity.x > 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x / 3, rb.velocity.y);
+            }
         }
 
         Debug.Log("MOVING " + moveDirection);
@@ -143,7 +156,7 @@ public class Player : MonoBehaviour
             Vector2 refVal = Vector2.zero;
 
             // Add character force in direction of attack
-            rb.velocity = new Vector2(0, rb.velocity.y / 2);
+            rb.velocity = new Vector2(0, 0);
 
             if (transform.rotation.y == 0)
             {
