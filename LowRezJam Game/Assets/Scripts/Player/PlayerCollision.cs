@@ -11,6 +11,7 @@ public class PlayerCollision : MonoBehaviour
         if(c.gameObject.tag == "Ground")
         {
             player.grounded = true;
+            player.GravityTimer();
         }
     }
 
@@ -19,6 +20,7 @@ public class PlayerCollision : MonoBehaviour
         if (c.gameObject.tag == "Ground")
         {
             player.grounded = true;
+            player.GravityTimer();
         }
     }
 

@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public PlayerInput input => GetComponent<PlayerInput>();
     private Rigidbody2D rb => GetComponent<Rigidbody2D>();
     private CapsuleCollider2D coll => GetComponent<CapsuleCollider2D>();
+    public GameObject attackColl;
 
     // Player status variables
     public float health = 100;
@@ -27,8 +28,12 @@ public class Player : MonoBehaviour
     private bool inputMovement = true;
     private bool extraGravity = true;
     public bool grounded = true;
-    private Vector2 moveDirection = Vector2.zero;
 
+    public float gravityTimer = 1f;
+    private float gravityTime;
+
+    private Vector2 moveDirection = Vector2.zero;
+    
     // Crouch scale values
     private Vector3 originalScale;
     private Vector3 crouchScale;
@@ -37,21 +42,43 @@ public class Player : MonoBehaviour
 
     public float crouchDivision = 2;
 
+    // Attack values
+    public float attackCollTimer = 1f;
+    public float attackDelayTimer = 0.5f;
+    private float attackDelayTime;
+
     // Start is called before the first frame update
     void Start()
     {
+        // Get character scale and set crouch scale
         originalScale = transform.localScale;
         crouchScale = new Vector3(originalScale.x, originalScale.y / crouchDivision, originalScale.z);
 
+        // Get collider scale and set crouch scale
         originalCollScale = coll.size;
         crouchCollScale = new Vector3(originalCollScale.x, originalCollScale.y / crouchDivision);
+
+        attackColl.SetActive(false);
+    }
+
+    private void Update()
+    {
+        // Timer to enable extra gravity when in air
+        if(Time.time > gravityTime)
+        {
+            extraGravity = true;
+        }
+        else
+        {
+            extraGravity = false;
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-        rb.AddForce(new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed));
+        // Movement forces
+        rb.AddForce(moveDirection * moveSpeed);
 
         if(extraGravity)
         {
@@ -59,6 +86,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Method that dictates movement direction, gets InputValue 
     private void OnMove(InputValue direction)
     {
         inputMovement = true;
@@ -94,24 +122,51 @@ public class Player : MonoBehaviour
         Debug.Log("MOVING " + moveDirection);
     }
 
+    // Method for the player jump, gets InputValue
     private void OnJump(InputValue jumpValue)
     {
         if(grounded)
         {
             rb.AddForce(Vector2.up * jumpForce);
-            extraGravity = (jumpValue.Get<float>() != 1);
             Debug.Log("JUMP " + jumpValue.Get<float>());
         }
     }
 
-    private void OnAttack()
+    // Coroutine to enact player attack
+    private IEnumerator OnAttack()
     {
-        CameraShake.Shake();
-        rb.AddForce(new Vector2(moveDirection.x * attackForce, moveDirection.y * attackForce));
+        if(Time.time > attackDelayTime)
+        {
+            attackDelayTime = Time.time + attackCollTimer;
+            CameraShake.Shake();
 
-        Debug.Log("NINJA ATTACK");
+            Vector2 refVal = Vector2.zero;
+
+            // Add character force in direction of attack
+            rb.velocity = new Vector2(0, rb.velocity.y / 2);
+
+            if (transform.rotation.y == 0)
+            {
+                rb.AddForce(Vector2.SmoothDamp(rb.velocity, new Vector2(transform.position.x * attackForce, transform.position.y), ref refVal, 0f));
+            }
+            else
+            {
+                rb.AddForce(Vector2.SmoothDamp(rb.velocity, new Vector2(transform.position.x * -attackForce, transform.position.y), ref refVal, 0f));
+            }
+
+            // Enable attack collider
+            attackColl.SetActive(true);
+
+            Debug.Log("NINJA ATTACK");
+
+            yield return new WaitForSeconds(attackCollTimer);
+
+            attackColl.SetActive(false);
+            Debug.Log("NINJA ATTACK ENDED");
+        }
     }
 
+    // Method to set character to crouch
     private void Crouch(bool downInput)
     {
         if(downInput)
@@ -128,8 +183,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Method to force extra gravity on character
     private void ExtraGravity(float gravityStrength)
     {
         rb.AddForce(Vector3.down * gravityStrength * rb.mass);
+    }
+
+    public void GravityTimer()
+    {
+        gravityTime = Time.time + gravityTimer;
     }
 }
