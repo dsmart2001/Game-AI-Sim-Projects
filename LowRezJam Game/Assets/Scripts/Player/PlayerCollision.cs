@@ -31,4 +31,21 @@ public class PlayerCollision : MonoBehaviour
             player.grounded = false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D c)
+    {
+        if(c.gameObject.tag == "Energy")
+        {
+
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D c)
+    {
+        
+    }
+    private void OnTriggerExit2D(Collider2D c)
+    {
+        
+    }
 }

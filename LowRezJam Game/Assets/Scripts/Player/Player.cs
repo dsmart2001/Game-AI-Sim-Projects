@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
             // Dampen force on changing inputs for quick turns
             if (rb.velocity.x < 0)
             {
-                rb.velocity = new Vector2(rb.velocity.x / 3, rb.velocity.y);
+                rb.velocity = new Vector2(rb.velocity.x / 4, rb.velocity.y);
             }
         }
         else if (moveDirection.x > 0)
@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
             // Dampen force on changing inputs for quick turns
             if (rb.velocity.x > 0)
             {
-                rb.velocity = new Vector2(rb.velocity.x / 3, rb.velocity.y);
+                rb.velocity = new Vector2(rb.velocity.x / 4, rb.velocity.y);
             }
         }
 
