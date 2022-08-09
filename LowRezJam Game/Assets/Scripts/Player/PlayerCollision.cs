@@ -8,7 +8,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D c)
     {
-        if(c.gameObject.tag == "Ground")
+        if(c.gameObject.tag == "Ground" && transform.position.y > c.gameObject.transform.position.y)
         {
             player.grounded = true;
             player.GravityTimer();
@@ -17,7 +17,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D c)
     {
-        if (c.gameObject.tag == "Ground")
+        if (c.gameObject.tag == "Ground" && transform.position.y > c.gameObject.transform.position.y)
         {
             player.grounded = true;
             player.GravityTimer();
@@ -36,7 +36,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if(c.gameObject.tag == "Energy")
         {
-
+            player.EnergyBoost(true);
         }
     }
 

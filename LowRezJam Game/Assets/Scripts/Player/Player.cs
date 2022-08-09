@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerCollision))]
 [RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class Player : MonoBehaviour
@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
     // Components
     public PlayerInput input => GetComponent<PlayerInput>();
     private Rigidbody2D rb => GetComponent<Rigidbody2D>();
-    private CapsuleCollider2D coll => GetComponent<CapsuleCollider2D>();
+    private BoxCollider2D coll => GetComponent<BoxCollider2D>();
+
     public GameObject attackColl;
 
     // Player status variables
@@ -47,6 +48,13 @@ public class Player : MonoBehaviour
     public float attackDelayTimer = 0.5f;
     private float attackDelayTime;
 
+    // Energy values
+    public float energyMultiplier = 1;
+    public float energyDeclineTimer = 5f;
+    private float energyDeclineTime;
+    public float energyAdd = 0.5f;
+    public float energyMax = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,13 +80,20 @@ public class Player : MonoBehaviour
         {
             extraGravity = false;
         }
+
+        // Timer to decrease energy
+        if(Time.time > energyDeclineTime)
+        {
+            EnergyBoost(false);
+            energyDeclineTime = Time.time + energyDeclineTimer;
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         // Movement forces
-        rb.AddForce(moveDirection * moveSpeed);
+        rb.AddForce(moveDirection * moveSpeed * energyMultiplier);
 
         if(extraGravity)
         {
@@ -91,7 +106,7 @@ public class Player : MonoBehaviour
     {
         inputMovement = true;
 
-        // Crouch
+        // Crouch input
         if(direction.Get<Vector2>().y < 0)
         {
             Crouch(true);
@@ -102,7 +117,6 @@ public class Player : MonoBehaviour
             Crouch(false);
             inputMovement = true;
         }
-
 
         // Get Movement to move
         if(inputMovement)
@@ -116,17 +130,17 @@ public class Player : MonoBehaviour
             transform.rotation = new Quaternion(0f, -180f, 0f, 0f);
 
             // Dampen force on changing inputs for quick turns
-            if (rb.velocity.x < 0)
+            if (rb.velocity.x > 0)
             {
                 rb.velocity = new Vector2(rb.velocity.x / 4, rb.velocity.y);
             }
         }
         else if (moveDirection.x > 0)
         {
-            transform.rotation = new Quaternion(0f, -0f, 0f, 0f);
+            transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
 
             // Dampen force on changing inputs for quick turns
-            if (rb.velocity.x > 0)
+            if (rb.velocity.x < 0)
             {
                 rb.velocity = new Vector2(rb.velocity.x / 4, rb.velocity.y);
             }
@@ -140,7 +154,14 @@ public class Player : MonoBehaviour
     {
         if(grounded)
         {
-            rb.AddForce(Vector2.up * jumpForce);
+            if(energyMultiplier > 2)
+            {
+                rb.AddForce(Vector2.up * jumpForce * (energyMultiplier / 2));
+            }
+            else
+            {
+                rb.AddForce(Vector2.up * jumpForce);
+            }
             Debug.Log("JUMP " + jumpValue.Get<float>());
         }
     }
@@ -160,21 +181,23 @@ public class Player : MonoBehaviour
 
             if (transform.rotation.y == 0)
             {
-                rb.AddForce(Vector2.SmoothDamp(rb.velocity, new Vector2(transform.position.x * attackForce, transform.position.y), ref refVal, 0f));
+                rb.AddForce(Vector2.SmoothDamp(rb.velocity, new Vector2(transform.position.x * attackForce * energyMultiplier, transform.position.y), ref refVal, 0f));
             }
             else
             {
-                rb.AddForce(Vector2.SmoothDamp(rb.velocity, new Vector2(transform.position.x * -attackForce, transform.position.y), ref refVal, 0f));
+                rb.AddForce(Vector2.SmoothDamp(rb.velocity, new Vector2(transform.position.x * -attackForce * energyMultiplier, transform.position.y), ref refVal, 0f));
             }
 
             // Enable attack collider
             attackColl.SetActive(true);
+            inputMovement = false;
 
             Debug.Log("NINJA ATTACK");
 
             yield return new WaitForSeconds(attackCollTimer);
 
             attackColl.SetActive(false);
+            inputMovement = true;
             Debug.Log("NINJA ATTACK ENDED");
         }
     }
@@ -205,5 +228,31 @@ public class Player : MonoBehaviour
     public void GravityTimer()
     {
         gravityTime = Time.time + gravityTimer;
+    }
+
+    public void EnergyBoost(bool increase)
+    {
+        switch(increase)
+        {
+            case true:
+                energyMultiplier += energyAdd;
+
+                energyDeclineTime = Time.time + energyDeclineTimer;
+
+                Debug.Log("NINJA INCREASED ENERGY TO " + energyMultiplier);
+                break;
+            case false:
+                if(energyMultiplier > 1)
+                {
+                    energyMultiplier -= energyAdd;
+                    Debug.Log("NINJA DECREASED ENERGY TO " + energyMultiplier);
+
+                    if (energyMultiplier < 1)
+                    {
+                        energyMultiplier = 1;
+                    }
+                }
+                break;
+        }
     }
 }
