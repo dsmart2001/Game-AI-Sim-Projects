@@ -13,6 +13,11 @@ public class PlayerCollision : MonoBehaviour
             player.grounded = true;
             player.GravityTimer();
         }
+
+        if(c.gameObject.tag == "Attack")
+        {
+
+        }
     }
 
     private void OnCollisionStay2D(Collision2D c)
