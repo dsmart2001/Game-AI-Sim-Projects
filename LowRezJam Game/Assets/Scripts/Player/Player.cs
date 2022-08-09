@@ -48,6 +48,8 @@ public class Player : MonoBehaviour
     private Vector2 crouchCollScale;
 
     public float crouchDivision = 2;
+    private InputValue crouchInput;
+    private bool crouched = false;
 
     [Header("Attack Values")]
 
@@ -56,7 +58,7 @@ public class Player : MonoBehaviour
     public float attackDelayTimer = 0.5f;
     private float attackDelayTime;
 
-    [Header("Energ Values")]
+    [Header("Energy Values")]
 
     // Energy values
     public float energyMultiplier = 1;
@@ -152,25 +154,11 @@ public class Player : MonoBehaviour
     {
         inputMovement = true;
 
-        // Crouch input
-        if(direction.Get<Vector2>().y < 0)
-        {
-            Crouch(true);
-            inputMovement = false;
-        }
-        else
-        {
-            Crouch(false);
-            inputMovement = true;
-        }
-
         // Get Movement to move
         if(inputMovement)
         {
             moveDirection = new Vector2(direction.Get<Vector2>().x, 0);
         }
-
-  
 
         Debug.Log("MOVING " + moveDirection);
     }
@@ -195,7 +183,7 @@ public class Player : MonoBehaviour
     // Coroutine to enact player attack
     private IEnumerator OnAttack()
     {
-        if(Time.time > attackDelayTime)
+        if(Time.time > attackDelayTime && !crouched)
         {
             attackDelayTime = Time.time + attackCollTimer;
             CameraShake.Shake();
@@ -229,20 +217,27 @@ public class Player : MonoBehaviour
     }
 
     // Method to set character to crouch
-    private void Crouch(bool downInput)
+    private void OnCrouch(InputValue crouchValue)
     {
-        if(downInput)
+        if(crouchValue.Get<float>() == 1)
         {
             transform.localScale = crouchScale;
             coll.size = crouchCollScale;
 
-            Debug.Log("NINJA CROUCH");
+            inputMovement = false;
+            crouched = true;
         }
-        else
+        else if(crouchValue.Get<float>() == 0)
         {
             transform.localScale = originalScale;
             coll.size = originalCollScale;
+
+            inputMovement = true;
+            crouched = false;
         }
+
+
+        Debug.Log("NINJA CROUCH " + crouchValue.Get<float>());
     }
 
     // Method to force extra gravity on character
