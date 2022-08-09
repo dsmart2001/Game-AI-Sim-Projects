@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     public GameObject attackColl;
 
+    [Header("Player Overview")]
+
     // Player status variables
     public float health = 100;
     public float energy = 1;
@@ -25,10 +27,14 @@ public class Player : MonoBehaviour
     public float attackForce = 10;
     public float gravity = 50;
 
+    [Header("Movement Checks")]
+
     // Property values
     private bool inputMovement = true;
     private bool extraGravity = true;
     public bool grounded = true;
+    public float movementMaxVelocity;
+    private float _movementMaxVelocity;
 
     public float gravityTimer = 1f;
     private float gravityTime;
@@ -43,10 +49,14 @@ public class Player : MonoBehaviour
 
     public float crouchDivision = 2;
 
+    [Header("Attack Values")]
+
     // Attack values
     public float attackCollTimer = 1f;
     public float attackDelayTimer = 0.5f;
     private float attackDelayTime;
+
+    [Header("Energ Values")]
 
     // Energy values
     public float energyMultiplier = 1;
@@ -67,6 +77,8 @@ public class Player : MonoBehaviour
         crouchCollScale = new Vector3(originalCollScale.x, originalCollScale.y / crouchDivision);
 
         attackColl.SetActive(false);
+
+        _movementMaxVelocity = movementMaxVelocity;
     }
 
     private void Update()
@@ -99,6 +111,40 @@ public class Player : MonoBehaviour
         {
             ExtraGravity(gravity);
         }
+
+        // Modify character and velocity on changing inputs
+        if (moveDirection.x < 0)
+        {
+            transform.rotation = new Quaternion(0f, -180f, 0f, 0f);
+
+            // Dampen force on changing inputs for quick turns
+            if (rb.velocity.x > 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x / 4, rb.velocity.y);
+            }
+
+            // Limit max speed
+            if (rb.velocity.x < -movementMaxVelocity)
+            {
+                rb.velocity = new Vector2(-movementMaxVelocity, rb.velocity.y);
+            }
+        }
+        else if (moveDirection.x > 0)
+        {
+            transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+
+            // Dampen force on changing inputs for quick turns
+            if (rb.velocity.x < 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x / 4, rb.velocity.y);
+            }
+
+            // Limit max speed
+            if (rb.velocity.x > movementMaxVelocity)
+            {
+                rb.velocity = new Vector2(movementMaxVelocity, rb.velocity.y);
+            }
+        }
     }
 
     // Method that dictates movement direction, gets InputValue 
@@ -124,27 +170,7 @@ public class Player : MonoBehaviour
             moveDirection = new Vector2(direction.Get<Vector2>().x, 0);
         }
 
-        // Rotate character on move direction
-        if (moveDirection.x < 0)
-        {
-            transform.rotation = new Quaternion(0f, -180f, 0f, 0f);
-
-            // Dampen force on changing inputs for quick turns
-            if (rb.velocity.x > 0)
-            {
-                rb.velocity = new Vector2(rb.velocity.x / 4, rb.velocity.y);
-            }
-        }
-        else if (moveDirection.x > 0)
-        {
-            transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-
-            // Dampen force on changing inputs for quick turns
-            if (rb.velocity.x < 0)
-            {
-                rb.velocity = new Vector2(rb.velocity.x / 4, rb.velocity.y);
-            }
-        }
+  
 
         Debug.Log("MOVING " + moveDirection);
     }
@@ -236,16 +262,18 @@ public class Player : MonoBehaviour
         {
             case true:
                 energyMultiplier += energyAdd;
-
                 energyDeclineTime = Time.time + energyDeclineTimer;
+                movementMaxVelocity += (_movementMaxVelocity * energyAdd);
 
-                Debug.Log("NINJA INCREASED ENERGY TO " + energyMultiplier);
+                Debug.Log("NINJA INCREASED ENERGY TO " + energyMultiplier + ", movement max velocity = " + movementMaxVelocity);
                 break;
             case false:
                 if(energyMultiplier > 1)
                 {
                     energyMultiplier -= energyAdd;
-                    Debug.Log("NINJA DECREASED ENERGY TO " + energyMultiplier);
+                    movementMaxVelocity -= (_movementMaxVelocity * energyAdd);
+
+                    Debug.Log("NINJA DECREASED ENERGY TO " + energyMultiplier + ", movement max velocity = " + movementMaxVelocity);
 
                     if (energyMultiplier < 1)
                     {
