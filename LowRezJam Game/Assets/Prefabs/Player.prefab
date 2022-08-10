@@ -428,7 +428,7 @@ MonoBehaviour:
   sprite: {fileID: 7928085457682338952}
   health: 100
   energy: 1
-  jumpForce: 1300
+  jumpForce: 1350
   moveSpeed: 35
   attackForce: 60
   gravity: 45
@@ -440,7 +440,7 @@ MonoBehaviour:
   attackDelayTimer: 2
   energyMultiplier: 1
   energyDeclineTimer: 5
-  energyAdd: 0.5
+  energyAdd: 0.75
   energyMax: 3
 --- !u!114 &7928085459559358708
 MonoBehaviour:

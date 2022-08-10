@@ -259,6 +259,7 @@ public class Player : MonoBehaviour
         gravityTime = Time.time + gravityTimer;
     }
 
+    // Method to increase energy of player
     public void EnergyBoost(bool increase)
     {
         switch(increase)
@@ -287,6 +288,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Coroutine for the player taking damage+
     public IEnumerator TakeDamage(float damage)
     {
         health -= damage;
@@ -294,9 +296,10 @@ public class Player : MonoBehaviour
 
         Debug.Log(gameObject.name + " NINJA DAMAGED, HEALTH = " + health);
 
+        // FAIL-STATE
         if(health <= 0)
         {
-
+            GameManager.PlayerLost();
         }
 
         sprite.color = Color.red;
