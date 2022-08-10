@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StageCraft : MonoBehaviour
 {
+    public List<GameObject> Stages;
+    
     // Start is called before the first frame update
     void Start()
     {

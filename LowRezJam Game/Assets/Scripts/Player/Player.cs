@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Panda;
 
 [RequireComponent(typeof(PlayerCollision))]
 [RequireComponent(typeof(PlayerInput))]
@@ -150,6 +151,7 @@ public class Player : MonoBehaviour
     }
 
     // Method that dictates movement direction, gets InputValue 
+    [Task]
     private void OnMove(InputValue direction)
     {
         inputMovement = true;
@@ -164,6 +166,7 @@ public class Player : MonoBehaviour
     }
 
     // Method for the player jump, gets InputValue
+    [Task]
     private void OnJump(InputValue jumpValue)
     {
         if(grounded)
@@ -181,6 +184,7 @@ public class Player : MonoBehaviour
     }
 
     // Coroutine to enact player attack
+    [Task]
     private IEnumerator OnAttack()
     {
         if(Time.time > attackDelayTime && !crouched)
@@ -217,6 +221,7 @@ public class Player : MonoBehaviour
     }
 
     // Method to set character to crouch
+    [Task]
     private void OnCrouch(InputValue crouchValue)
     {
         if(crouchValue.Get<float>() == 1)

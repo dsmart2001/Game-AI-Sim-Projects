@@ -158,7 +158,7 @@ MonoBehaviour:
   - {fileID: 321641778632532647, guid: 8e6a1c00f0207d14985066096efc5f10, type: 3}
   - {fileID: 5741467872432226072, guid: 8e6a1c00f0207d14985066096efc5f10, type: 3}
   - {fileID: -8216100110582926358, guid: 8e6a1c00f0207d14985066096efc5f10, type: 3}
-  spritePerFrame: 6
+  spritePerFrame: 4
   loop: 1
   destroyOnEnd: 0
 --- !u!222 &7928085457682338953

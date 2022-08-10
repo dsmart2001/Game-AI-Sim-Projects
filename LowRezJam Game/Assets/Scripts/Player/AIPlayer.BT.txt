@@ -1,0 +1,27 @@
+tree("Root")
+		repeat
+			mute
+				fallback
+					tree "Attacking"
+					tree "Collecting"
+					tree "Movement"
+tree("Attacking")
+	while
+		sequence
+			
+		repeat
+tree("Collecting")
+	while
+		sequence
+
+		repeat
+tree("Movement")
+	while
+		sequence
+
+		repeat
+tree("Fleeing")
+	while
+		sequence
+
+		repeat
