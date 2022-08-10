@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7928085457623354631}
   - component: {fileID: 7928085457623354632}
   - component: {fileID: 7928085457623354635}
+  - component: {fileID: 50715622}
   m_Layer: 5
   m_Name: Attack Collider
   m_TagString: Attack
@@ -72,6 +73,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7928085457623354630}
   m_CullTransparentMesh: 1
+--- !u!114 &50715622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7928085457623354630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f1cc9e6dd7857842bdff202fadbba7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &7928085457682338950
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +230,6 @@ GameObject:
   - component: {fileID: 7928085459523796560}
   - component: {fileID: 7928085459523796911}
   - component: {fileID: 7928085459523796910}
-  - component: {fileID: 7928085459523796561}
   m_Layer: 5
   m_Name: Attack Animation
   m_TagString: Untagged
@@ -301,19 +314,6 @@ MonoBehaviour:
   spritePerFrame: 6
   loop: 1
   destroyOnEnd: 0
---- !u!114 &7928085459523796561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7928085459523796908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1cc9e6dd7857842bdff202fadbba7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
 --- !u!1 &7928085459559358669
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackColl: {fileID: 7928085457623354630}
+  sprite: {fileID: 7928085457682338952}
   health: 100
   energy: 1
   jumpForce: 1300
@@ -566,8 +567,8 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c48399b3-0fe7-44b7-97f5-040f405dfb4e
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Player CONTROLLER
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

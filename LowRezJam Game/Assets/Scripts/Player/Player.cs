@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Panda;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerCollision))]
 [RequireComponent(typeof(PlayerInput))]
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
     private BoxCollider2D coll => GetComponent<BoxCollider2D>();
 
     public GameObject attackColl;
+
+    public Image sprite;
 
     [Header("Player Overview")]
 
@@ -162,7 +165,7 @@ public class Player : MonoBehaviour
             moveDirection = new Vector2(direction.Get<Vector2>().x, 0);
         }
 
-        Debug.Log("MOVING " + moveDirection);
+        Debug.Log(gameObject.name + " MOVING " + moveDirection);
     }
 
     // Method for the player jump, gets InputValue
@@ -179,7 +182,7 @@ public class Player : MonoBehaviour
             {
                 rb.AddForce(Vector2.up * jumpForce);
             }
-            Debug.Log("JUMP " + jumpValue.Get<float>());
+            Debug.Log(gameObject.name + " JUMP " + jumpValue.Get<float>());
         }
     }
 
@@ -190,7 +193,7 @@ public class Player : MonoBehaviour
         if(Time.time > attackDelayTime && !crouched)
         {
             attackDelayTime = Time.time + attackCollTimer;
-            CameraShake.Shake();
+            CameraShake.Shake(0.5f);
 
             Vector2 refVal = Vector2.zero;
 
@@ -210,13 +213,13 @@ public class Player : MonoBehaviour
             attackColl.SetActive(true);
             inputMovement = false;
 
-            Debug.Log("NINJA ATTACK");
+            Debug.Log(gameObject.name + " NINJA ATTACK");
 
             yield return new WaitForSeconds(attackCollTimer);
 
             attackColl.SetActive(false);
             inputMovement = true;
-            Debug.Log("NINJA ATTACK ENDED");
+            Debug.Log(gameObject.name + " NINJA ATTACK ENDED");
         }
     }
 
@@ -242,7 +245,7 @@ public class Player : MonoBehaviour
         }
 
 
-        Debug.Log("NINJA CROUCH " + crouchValue.Get<float>());
+        Debug.Log(gameObject.name + " NINJA CROUCH " + crouchValue.Get<float>());
     }
 
     // Method to force extra gravity on character
@@ -265,7 +268,7 @@ public class Player : MonoBehaviour
                 energyDeclineTime = Time.time + energyDeclineTimer;
                 movementMaxVelocity += (_movementMaxVelocity * energyAdd);
 
-                Debug.Log("NINJA INCREASED ENERGY TO " + energyMultiplier + ", movement max velocity = " + movementMaxVelocity);
+                Debug.Log(gameObject.name + " NINJA INCREASED ENERGY TO " + energyMultiplier + ", movement max velocity = " + movementMaxVelocity);
                 break;
             case false:
                 if(energyMultiplier > 1)
@@ -273,7 +276,7 @@ public class Player : MonoBehaviour
                     energyMultiplier -= energyAdd;
                     movementMaxVelocity -= (_movementMaxVelocity * energyAdd);
 
-                    Debug.Log("NINJA DECREASED ENERGY TO " + energyMultiplier + ", movement max velocity = " + movementMaxVelocity);
+                    Debug.Log(gameObject.name + " NINJA DECREASED ENERGY TO " + energyMultiplier + ", movement max velocity = " + movementMaxVelocity);
 
                     if (energyMultiplier < 1)
                     {
@@ -282,5 +285,24 @@ public class Player : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public IEnumerator TakeDamage(float damage)
+    {
+        health -= damage;
+        CameraShake.Shake(2f);
+
+        Debug.Log(gameObject.name + " NINJA DAMAGED, HEALTH = " + health);
+
+        if(health <= 0)
+        {
+
+        }
+
+        sprite.color = Color.red;
+
+        yield return new WaitForSeconds(0.5f);
+
+        sprite.color = Color.white;     
     }
 }

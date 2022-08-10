@@ -14,7 +14,7 @@ public class CameraShake : MonoBehaviour
 	private static float _shakeDuration;
 
 	// Amplitude of the shake. A larger value shakes the camera harder.
-	public float shakeAmount = 0.7f;
+	public static float shakeAmount = 0.7f;
 	public float decreaseFactor = 1.0f;
 
 	Vector3 originalPos;
@@ -49,8 +49,9 @@ public class CameraShake : MonoBehaviour
 		}
 	}
 
-	public static void Shake()
+	public static void Shake(float newShakeAmount)
     {
+		shakeAmount = newShakeAmount;
 		shakeDuration = _shakeDuration;
 	}
 }

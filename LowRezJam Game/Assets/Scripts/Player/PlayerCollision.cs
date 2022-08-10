@@ -13,11 +13,6 @@ public class PlayerCollision : MonoBehaviour
             player.grounded = true;
             player.GravityTimer();
         }
-
-        if(c.gameObject.tag == "Attack")
-        {
-
-        }
     }
 
     private void OnCollisionStay2D(Collision2D c)
@@ -42,6 +37,15 @@ public class PlayerCollision : MonoBehaviour
         if(c.gameObject.tag == "Energy")
         {
             player.EnergyBoost(true);
+        }
+
+        if (c.gameObject.tag == "Attack")
+        {
+            if (!c.transform.IsChildOf(transform))
+            {
+                StartCoroutine(player.TakeDamage(c.gameObject.GetComponent<AttackObject>().damage));
+
+            }
         }
     }
 
