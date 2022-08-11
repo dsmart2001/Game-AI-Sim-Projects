@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34070134, g: 0.23409012, b: 0.76468587, a: 1}
+  m_IndirectSpecularColor: {r: 0.23516807, g: 0.1464369, b: 0.52209777, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1816,6 +1816,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1894,13 +1895,33 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: -0.34551516, y: -0, z: -0, w: 0.9384132}
-  m_LocalPosition: {x: 0, y: 1.05, z: -16.45}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -40.427, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 1
+  m_RefResolutionX: 64
+  m_RefResolutionY: 64
+  m_UpscaleRT: 1
+  m_PixelSnapping: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
+  m_StretchFill: 0
 --- !u!1 &522649512
 GameObject:
   m_ObjectHideFlags: 0
@@ -5437,7 +5458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 6.97, y: -4}
+  m_AnchoredPosition: {x: 6.970001, y: -4}
   m_SizeDelta: {x: 8, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650218350
@@ -5643,8 +5664,8 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 64, y: 64}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_ScreenMatchMode: 1
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -5659,10 +5680,10 @@ Canvas:
   m_GameObject: {fileID: 1689651365}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -6728,6 +6749,14 @@ PrefabInstance:
       propertyPath: energyAdd
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 7928085459559358707, guid: 9a076ac06d6c2c94d92849a52a0ff9d2, type: 3}
+      propertyPath: jumpForce
+      value: 1400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928085459559358707, guid: 9a076ac06d6c2c94d92849a52a0ff9d2, type: 3}
+      propertyPath: attackForce
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 7928085459559358709, guid: 9a076ac06d6c2c94d92849a52a0ff9d2, type: 3}
       propertyPath: m_DefaultActionMap
       value: 9b837446-c313-4bc8-98b9-dadd1af4bcbf
@@ -7441,6 +7470,18 @@ PrefabInstance:
     - target: {fileID: 7928085459559358707, guid: 9a076ac06d6c2c94d92849a52a0ff9d2, type: 3}
       propertyPath: energyAdd
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928085459559358707, guid: 9a076ac06d6c2c94d92849a52a0ff9d2, type: 3}
+      propertyPath: jumpForce
+      value: 1400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928085459559358707, guid: 9a076ac06d6c2c94d92849a52a0ff9d2, type: 3}
+      propertyPath: moveSpeed
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928085459559358707, guid: 9a076ac06d6c2c94d92849a52a0ff9d2, type: 3}
+      propertyPath: attackForce
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 7928085459559358709, guid: 9a076ac06d6c2c94d92849a52a0ff9d2, type: 3}
       propertyPath: m_DefaultActionMap
