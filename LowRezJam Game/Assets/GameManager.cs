@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private StageCraft stageCraft => GetComponent<StageCraft>();
+    private Menus menus => GetComponent<Menus>();
+
+    public Player[] players;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        players = FindObjectsOfType<Player>();
     }
 
     // Update is called once per frame
@@ -16,8 +21,8 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public static void PlayerLost()
+    public void PlayerLost()
     {
-
+        stageCraft.NextStage();
     }
 }

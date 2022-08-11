@@ -13,6 +13,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     // Components
+    private GameManager GM;
     public PlayerInput input => GetComponent<PlayerInput>();
     private Rigidbody2D rb => GetComponent<Rigidbody2D>();
     private BoxCollider2D coll => GetComponent<BoxCollider2D>();
@@ -74,6 +75,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GM = FindObjectOfType<GameManager>();
+
         // Get character scale and set crouch scale
         originalScale = transform.localScale;
         crouchScale = new Vector3(originalScale.x, originalScale.y / crouchDivision, originalScale.z);
@@ -254,6 +257,7 @@ public class Player : MonoBehaviour
         rb.AddForce(Vector3.down * gravityStrength * rb.mass);
     }
 
+    // Method that sets extra gravity timer ahead of current time
     public void GravityTimer()
     {
         gravityTime = Time.time + gravityTimer;
@@ -265,6 +269,7 @@ public class Player : MonoBehaviour
         switch(increase)
         {
             case true:
+                // Iterate energy and set timers
                 energyMultiplier += energyAdd;
                 energyDeclineTime = Time.time + energyDeclineTimer;
                 movementMaxVelocity += (_movementMaxVelocity * energyAdd);
@@ -299,13 +304,23 @@ public class Player : MonoBehaviour
         // FAIL-STATE
         if(health <= 0)
         {
-            GameManager.PlayerLost();
+            GM.PlayerLost();
         }
 
+        // Modify player appearance for damage
         sprite.color = Color.red;
 
         yield return new WaitForSeconds(0.5f);
 
         sprite.color = Color.white;     
+    }
+
+    public IEnumerator WinAppearance()
+    {
+        sprite.color = Color.yellow;
+
+        yield return new WaitForSeconds(2f);
+
+        sprite.color = Color.white;
     }
 }
