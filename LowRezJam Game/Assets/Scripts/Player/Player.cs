@@ -205,11 +205,13 @@ public class Player : MonoBehaviour
 
             if (transform.rotation.y == 0)
             {
-                rb.AddForce(Vector2.SmoothDamp(rb.velocity, new Vector2(transform.position.x * attackForce * energyMultiplier, transform.position.y), ref refVal, 0f));
+                //rb.AddForce(Vector2.SmoothDamp(rb.velocity, new Vector2(transform.position.x * -attackForce * energyMultiplier, transform.position.y), ref refVal, 0f));
+                rb.AddForce(new Vector2(attackForce * energyMultiplier, rb.velocity.y));
             }
             else
             {
-                rb.AddForce(Vector2.SmoothDamp(rb.velocity, new Vector2(transform.position.x * -attackForce * energyMultiplier, transform.position.y), ref refVal, 0f));
+                // rb.AddForce(Vector2.SmoothDamp(rb.velocity, new Vector2(transform.position.x * attackForce * energyMultiplier, transform.position.y), ref refVal, 0f));
+                rb.AddForce(new Vector2(-attackForce * energyMultiplier, rb.velocity.y));
             }
 
             // Enable attack collider

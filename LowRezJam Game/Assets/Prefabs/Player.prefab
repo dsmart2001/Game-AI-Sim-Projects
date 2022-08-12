@@ -428,10 +428,10 @@ MonoBehaviour:
   sprite: {fileID: 7928085457682338952}
   health: 100
   energy: 1
-  jumpForce: 1350
+  jumpForce: 1400
   moveSpeed: 35
-  attackForce: 60
-  gravity: 45
+  attackForce: 2000
+  gravity: 60
   grounded: 1
   movementMaxVelocity: 30
   gravityTimer: 0.6
@@ -569,6 +569,6 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player CONTROLLER
+  m_DefaultActionMap: Player 1 KBM
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
