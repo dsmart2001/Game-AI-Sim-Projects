@@ -14,15 +14,17 @@ public class GUI : MonoBehaviour
 
     public List<Image> player1Energy;
     public List<Image> player2Energy;
-    public Color FullEnergyColour;
-    public Color NoEnergyColour;
 
+    public TMP_Text player1Score;
+    public TMP_Text player2Score;
+
+    public GameObject messagePanel;
     public TMP_Text playerDefeatedText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        messagePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,5 +32,14 @@ public class GUI : MonoBehaviour
     {
         player1Health.text = playerOne.health.ToString();
         player2Health.text = playerTwo.health.ToString();
+    }
+
+    public IEnumerator MessagePlayerDefeated()
+    {
+        messagePanel.SetActive(true);
+        playerDefeatedText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        messagePanel.SetActive(false);
+        playerDefeatedText.gameObject.SetActive(false);
     }
 }

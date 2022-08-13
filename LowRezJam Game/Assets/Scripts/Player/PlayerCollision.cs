@@ -17,6 +17,7 @@ public class PlayerCollision : MonoBehaviour
         if(c.gameObject.tag == "Player" && c.gameObject.GetComponent<Player>().health <= 0)
         {
             StartCoroutine(player.WinAppearance());
+            player.score++;
         }
     }
 
@@ -49,7 +50,6 @@ public class PlayerCollision : MonoBehaviour
             if (!c.transform.IsChildOf(transform))
             {
                 StartCoroutine(player.TakeDamage(c.gameObject.GetComponent<AttackObject>().damage));
-
             }
         }
     }

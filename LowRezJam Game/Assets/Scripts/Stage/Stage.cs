@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
+    // STAGE PROPERTIES
     public Transform spawn1;
     public Transform spawn2;
-
     public List<GameObject> items;
-
-    public void StartStage()
-    {
-        
-    }
 }

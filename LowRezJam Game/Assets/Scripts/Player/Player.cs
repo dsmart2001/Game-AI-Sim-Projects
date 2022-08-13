@@ -25,6 +25,9 @@ public class Player : MonoBehaviour
     [Header("Player Overview")]
 
     // Player status variables
+    public int playerNumber;
+    public int score;
+
     public float health = 100;
     public float energy = 1;
     public float jumpForce = 5;
@@ -88,6 +91,8 @@ public class Player : MonoBehaviour
         attackColl.SetActive(false);
 
         _movementMaxVelocity = movementMaxVelocity;
+
+        GM.ActivePlayers.Add(this);
     }
 
     private void Update()
@@ -307,6 +312,7 @@ public class Player : MonoBehaviour
         if(health <= 0)
         {
             GM.PlayerLost();
+            health = 100;
         }
 
         // Modify player appearance for damage
@@ -319,7 +325,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator WinAppearance()
     {
-        sprite.color = Color.yellow;
+        sprite.color = Color.green;
 
         yield return new WaitForSeconds(2f);
 

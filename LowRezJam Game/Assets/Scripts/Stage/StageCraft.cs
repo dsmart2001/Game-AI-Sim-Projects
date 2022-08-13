@@ -5,7 +5,8 @@ using UnityEngine;
 public class StageCraft : MonoBehaviour
 {
     public List<Stage> Stages;
-    public int currentStage = 0;
+    public int currentStageNumber = 0;
+    public Stage currentStage;
 
     // Start is called before the first frame update
     void Start()
@@ -16,16 +17,20 @@ public class StageCraft : MonoBehaviour
         }
     }
 
+    // Set next stage
     public void NextStage()
     {
-        Stages[currentStage].gameObject.SetActive(false);
-        currentStage++;
+        Stages[currentStageNumber].gameObject.SetActive(false);
+        currentStageNumber++;
 
-        if(currentStage > Stages.Count)
+        if(currentStageNumber > Stages.Count - 1)
         {
-            currentStage = 0;
+            currentStageNumber = 0;
         }
 
-        Stages[currentStage].gameObject.SetActive(true);
+        currentStage = Stages[currentStageNumber];
+
+        Stages[currentStageNumber].gameObject.SetActive(true);
+        Debug.Log("SET NEW STAGE: " + currentStage);
     } 
 }
