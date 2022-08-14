@@ -10,17 +10,17 @@ public class GameManager : MonoBehaviour
     private GUI gui => FindObjectOfType<GUI>();
 
     public List<Player> ActivePlayers;
+    public int winScore = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        //players = FindObjectsOfType<Player>();
+
     }
 
     public void PlayerLost()
     {
         stageCraft.NextStage();
-        gui.MessagePlayerDefeated();
 
         // Reset player health and score
         foreach(Player i in ActivePlayers) 
@@ -31,16 +31,34 @@ public class GameManager : MonoBehaviour
             }
             else if(i.health > 0)
             {
-                StartCoroutine(i.WinAppearance());
+                //StartCoroutine(i.WinAppearance());
                 i.score++;
                 Score(i.playerNumber, i.score);
+
+                // WIN STATE
+                if (i.score >= winScore)
+                {
+                    if(i.playerNumber == 1)
+                    {
+                        gui.playerWinText.text = "RED WINS";
+                    }
+                    else
+                    {
+                        gui.playerWinText.text = "BLUE WINS";
+                    }
+
+                    StartCoroutine(gui.MessagePlayerWin());
+
+                    Time.timeScale = 0;
+                }
             }
 
-            // Reset player spawns
+            // Check each player state
             switch (i.playerNumber)
             {
                 case 1:
                     i.transform.position = stageCraft.currentStage.spawn1.position;
+
                     break;
                 case 2:
                     i.transform.position = stageCraft.currentStage.spawn2.position;

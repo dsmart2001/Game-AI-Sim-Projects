@@ -13,12 +13,6 @@ public class PlayerCollision : MonoBehaviour
             player.grounded = true;
             player.GravityTimer();
         }
-
-        if(c.gameObject.tag == "Player" && c.gameObject.GetComponent<Player>().health <= 0)
-        {
-            StartCoroutine(player.WinAppearance());
-            player.score++;
-        }
     }
 
     private void OnCollisionStay2D(Collision2D c)

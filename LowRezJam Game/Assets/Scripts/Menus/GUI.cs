@@ -19,7 +19,7 @@ public class GUI : MonoBehaviour
     public TMP_Text player2Score;
 
     public GameObject messagePanel;
-    public TMP_Text playerDefeatedText;
+    public TMP_Text playerWinText;
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +34,12 @@ public class GUI : MonoBehaviour
         player2Health.text = playerTwo.health.ToString();
     }
 
-    public IEnumerator MessagePlayerDefeated()
+    public IEnumerator MessagePlayerWin()
     {
         messagePanel.SetActive(true);
-        playerDefeatedText.gameObject.SetActive(true);
+        playerWinText.gameObject.SetActive(true);
         yield return new WaitForSeconds(3f);
         messagePanel.SetActive(false);
-        playerDefeatedText.gameObject.SetActive(false);
+        playerWinText.gameObject.SetActive(false);
     }
 }
