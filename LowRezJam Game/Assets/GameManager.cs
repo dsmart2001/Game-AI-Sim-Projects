@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,13 +10,44 @@ public class GameManager : MonoBehaviour
 
     private GUI gui => FindObjectOfType<GUI>();
 
+    public Transform playerParent;
     public List<Player> ActivePlayers;
+
+    public static PlayerInput player1;
+    public GameObject player1Prefab;
+    public static PlayerInput player2;
+    public GameObject player2Prefab;
+
+    public Vector3 playerScale;
+
     public int winScore = 10;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Instantiate and set players
+        player1 = PlayerInput.Instantiate(player1Prefab, controlScheme: "Keyboard&Mouse", pairWithDevice: Keyboard.current);
+        player2 = PlayerInput.Instantiate(player2Prefab, controlScheme: "Keyboard&Mouse", pairWithDevice: Keyboard.current);
 
+        ActivePlayers.Add(player1.GetComponent<Player>());
+        ActivePlayers.Add(player2.GetComponent<Player>());
+
+        // Set player positions
+        foreach (Player i in ActivePlayers)
+        {
+            i.gameObject.transform.SetParent(playerParent);
+            i.transform.localScale = playerScale;
+
+            switch (i.playerNumber)
+            {
+                case 1:
+                    i.transform.position = stageCraft.currentStage.spawn1.position;
+                    break;
+                case 2:
+                    i.transform.position = stageCraft.currentStage.spawn2.position;
+                    break;
+            }
+        }
     }
 
     public void PlayerLost()

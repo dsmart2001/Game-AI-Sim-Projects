@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 7928085459559358708}
   - component: {fileID: 7928085459559358709}
   m_Layer: 5
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,7 +345,7 @@ RectTransform:
   m_GameObject: {fileID: 7928085459559358669}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7928085457682338951}
   - {fileID: 7928085457623354631}
@@ -355,7 +355,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -16.6, y: 9.6}
-  m_SizeDelta: {x: 1, y: 1}
+  m_SizeDelta: {x: 15, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7928085459559358704
 CanvasRenderer:
@@ -426,6 +426,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackColl: {fileID: 7928085457623354630}
   sprite: {fileID: 7928085457682338952}
+  playerNumber: 1
+  score: 0
   health: 100
   energy: 1
   jumpForce: 1400

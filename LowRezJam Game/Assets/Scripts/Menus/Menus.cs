@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Menus : MonoBehaviour
 {
+    // Menu Objects
     public GameObject GameplayObject;
     public GameObject MenuObject;
     public GameObject SettingsObject;
     public GameObject ControlsObject;
 
+    // Menu lists
     public List<GameObject> HideAtStart;
     public List<GameObject> ShowAtStart;
 

@@ -9,6 +9,7 @@ public class GUI : MonoBehaviour
     public Player playerOne;
     public Player playerTwo;
 
+    // Player UI objects
     public TMP_Text player1Health;
     public TMP_Text player2Health;
 
@@ -18,6 +19,7 @@ public class GUI : MonoBehaviour
     public TMP_Text player1Score;
     public TMP_Text player2Score;
 
+    // General UI
     public GameObject messagePanel;
     public TMP_Text playerWinText;
 
@@ -25,6 +27,9 @@ public class GUI : MonoBehaviour
     void Start()
     {
         messagePanel.SetActive(false);
+
+        playerOne = GameManager.player1.GetComponent<Player>();
+        playerTwo = GameManager.player2.GetComponent<Player>();
     }
 
     // Update is called once per frame
