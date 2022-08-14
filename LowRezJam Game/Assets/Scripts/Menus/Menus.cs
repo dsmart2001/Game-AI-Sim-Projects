@@ -7,6 +7,7 @@ public class Menus : MonoBehaviour
     public GameObject GameplayObject;
     public GameObject MenuObject;
     public GameObject SettingsObject;
+    public GameObject ControlsObject;
 
     public List<GameObject> HideAtStart;
     public List<GameObject> ShowAtStart;
@@ -50,11 +51,22 @@ public class Menus : MonoBehaviour
         {
             case true:
                 SettingsObject.SetActive(true);
-                Time.timeScale = 0;
                 break;
             case false:
                 SettingsObject.SetActive(false);
-                Time.timeScale = 1;
+                break;
+        }
+    }
+
+    public void Controls(bool open)
+    {
+        switch (open)
+        {
+            case true:
+                ControlsObject.SetActive(true);
+                break;
+            case false:
+                ControlsObject.SetActive(false);
                 break;
         }
     }
