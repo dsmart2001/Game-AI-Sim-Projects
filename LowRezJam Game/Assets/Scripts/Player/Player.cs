@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     public Image sprite;
 
+    public GameObject[] energySprites = new GameObject[3];
+
     [Header("Player Overview")]
 
     // Player status variables
@@ -93,6 +95,11 @@ public class Player : MonoBehaviour
         _movementMaxVelocity = movementMaxVelocity;
 
         //GM.ActivePlayers.Add(this);
+
+        foreach(GameObject i in energySprites)
+        {
+            i.SetActive(false);
+        }
     }
 
     private void OnEnable()
@@ -286,6 +293,11 @@ public class Player : MonoBehaviour
                 energyDeclineTime = Time.time + energyDeclineTimer;
                 movementMaxVelocity += (_movementMaxVelocity * energyAdd);
 
+                if(energyMultiplier > energyMax)
+                {
+                    energyMultiplier = energyMax;
+                }
+
                 Debug.Log(gameObject.name + " NINJA INCREASED ENERGY TO " + energyMultiplier + ", movement max velocity = " + movementMaxVelocity);
                 break;
             case false:
@@ -301,6 +313,32 @@ public class Player : MonoBehaviour
                         energyMultiplier = 1;
                     }
                 }
+                break;
+        }
+
+        switch (energyMultiplier)
+        {
+            case 1:
+                foreach (GameObject i in energySprites)
+                {
+                    i.SetActive(false);
+                }
+                break;
+            case 1.75f:
+                energySprites[0].SetActive(true);
+                energySprites[1].SetActive(false);
+                energySprites[2].SetActive(false);
+
+                break;
+            case 2.5f:
+                energySprites[0].SetActive(false);
+                energySprites[1].SetActive(true);
+                energySprites[2].SetActive(false); 
+                break;
+            case 3.25f:
+                energySprites[0].SetActive(false);
+                energySprites[1].SetActive(false);
+                energySprites[2].SetActive(true); 
                 break;
         }
     }
