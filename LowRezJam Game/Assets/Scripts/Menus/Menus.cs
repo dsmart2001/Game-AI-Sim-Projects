@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Menus : MonoBehaviour
 {
+    private GameManager GM => GetComponent<GameManager>();
+
     // Menu Objects
     public GameObject GameplayObject;
     public GameObject MenuObject;
@@ -32,6 +34,8 @@ public class Menus : MonoBehaviour
     {
         MenuObject.SetActive(false);
         GameplayObject.SetActive(true);
+
+        GM.PairPlayers();
     }
 
     public void ChangeMode(bool TwoPlayer)

@@ -92,7 +92,12 @@ public class Player : MonoBehaviour
 
         _movementMaxVelocity = movementMaxVelocity;
 
-        GM.ActivePlayers.Add(this);
+        //GM.ActivePlayers.Add(this);
+    }
+
+    private void OnEnable()
+    {
+        
     }
 
     private void Update()

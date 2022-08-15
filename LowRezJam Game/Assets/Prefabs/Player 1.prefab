@@ -431,9 +431,9 @@ MonoBehaviour:
   health: 100
   energy: 1
   jumpForce: 1400
-  moveSpeed: 35
+  moveSpeed: 45
   attackForce: 2000
-  gravity: 60
+  gravity: 65
   grounded: 1
   movementMaxVelocity: 30
   gravityTimer: 0.6
@@ -570,7 +570,7 @@ MonoBehaviour:
     m_ActionId: c48399b3-0fe7-44b7-97f5-040f405dfb4e
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: KBM 1
   m_DefaultActionMap: Player 1 KBM
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
