@@ -45,7 +45,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D c)
     {
-        if(c.gameObject.tag == "Energy")
+        if(c.gameObject.tag == "Energy" && player.energyMultiplier != player.energyMax)
         {
             player.EnergyBoost(true);
         }

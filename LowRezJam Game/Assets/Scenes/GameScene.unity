@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.35983387, g: 0.24797177, b: 0.8026245, a: 1}
+  m_IndirectSpecularColor: {r: 0.40044445, g: 0.27939975, b: 0.89099157, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2144,7 +2144,7 @@ MonoBehaviour:
   - {fileID: 833581730}
   - {fileID: 1683818487}
   currentStageNumber: 0
-  currentStage: {fileID: 131559557}
+  currentStage: {fileID: 1279874737}
 --- !u!114 &321124888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7438,6 +7438,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackColl: {fileID: 1305722575}
   sprite: {fileID: 1305722576}
+  energySprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   playerNumber: 2
   score: 0
   health: 100

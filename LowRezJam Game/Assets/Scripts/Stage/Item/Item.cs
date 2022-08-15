@@ -10,7 +10,10 @@ public class Item : MonoBehaviour
     {
         if(c.gameObject.tag == "Player")
         {
-            gameObject.SetActive(false);
+            if(c.gameObject.GetComponent<Player>().energyMultiplier != c.gameObject.GetComponent<Player>().energyMax)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }
