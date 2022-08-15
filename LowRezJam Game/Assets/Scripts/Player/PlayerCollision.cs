@@ -8,25 +8,36 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D c)
     {
-        if((c.gameObject.tag == "Ground" || c.gameObject.tag == "Player") && transform.position.y > c.gameObject.transform.position.y)
+        if((c.gameObject.tag == "Ground" || c.gameObject.tag == "Player" || c.gameObject.tag == "Ground1Way") && transform.position.y > c.gameObject.transform.position.y)
         {
             player.grounded = true;
             player.GravityTimer();
         }
+
+        if(c.gameObject.tag == "Ground1Way" && player.crouched)
+        {
+            
+        }
+
     }
 
     private void OnCollisionStay2D(Collision2D c)
     {
-        if ((c.gameObject.tag == "Ground" || c.gameObject.tag == "Player") && transform.position.y > c.gameObject.transform.position.y)
+        if ((c.gameObject.tag == "Ground" || c.gameObject.tag == "Player" || c.gameObject.tag == "Ground1Way") && transform.position.y > c.gameObject.transform.position.y)
         {
             player.grounded = true;
             player.GravityTimer();
+        }
+
+        if (c.gameObject.tag == "Ground1Way" && player.crouched)
+        {
+            Physics2D.IgnoreCollision(c.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
         }
     }
 
     private void OnCollisionExit2D(Collision2D c)
     {
-        if (c.gameObject.tag == "Ground" || c.gameObject.tag == "Player")
+        if (c.gameObject.tag == "Ground" || c.gameObject.tag == "Player" || c.gameObject.tag == "Ground1Way")
         {
             player.grounded = false;
         }

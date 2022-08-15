@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
 
     public float crouchDivision = 2;
     private InputValue crouchInput;
-    private bool crouched = false;
+    public bool crouched = false;
 
     [Header("Attack Values")]
 

@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Attack
   - Energy
+  - Ground1Way
   layers:
   - Default
   - TransparentFX

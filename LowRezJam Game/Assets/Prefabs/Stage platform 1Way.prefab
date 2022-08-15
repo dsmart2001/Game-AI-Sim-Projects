@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8228504656344774750}
   m_Layer: 5
   m_Name: Stage platform 1Way
-  m_TagString: Ground
+  m_TagString: Ground1Way
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

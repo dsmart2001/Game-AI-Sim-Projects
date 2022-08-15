@@ -433,11 +433,12 @@ MonoBehaviour:
   jumpForce: 1400
   moveSpeed: 45
   attackForce: 2000
-  gravity: 65
+  gravity: 70
   grounded: 1
   movementMaxVelocity: 30
-  gravityTimer: 0.6
+  gravityTimer: 0.4
   crouchDivision: 2
+  crouched: 0
   attackCollTimer: 0.4
   attackDelayTimer: 2
   energyMultiplier: 1
