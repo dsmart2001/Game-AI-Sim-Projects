@@ -30,6 +30,11 @@ public class StageCraft : MonoBehaviour
 
         currentStage = Stages[currentStageNumber];
 
+        foreach(GameObject i in currentStage.items)
+        {
+            i.SetActive(true);
+        }
+
         Stages[currentStageNumber].gameObject.SetActive(true);
         Debug.Log("SET NEW STAGE: " + currentStage);
     } 
