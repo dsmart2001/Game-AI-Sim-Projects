@@ -701,7 +701,7 @@ MonoBehaviour:
   attackCollTimer: 0.4
   attackDelayTimer: 2
   energyMultiplier: 1
-  energyDeclineTimer: 5
+  energyDeclineTimer: 4
   energyAdd: 0.75
   energyMax: 3.25
 --- !u!114 &7928085459559358708

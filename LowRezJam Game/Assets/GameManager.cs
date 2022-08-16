@@ -29,17 +29,7 @@ public class GameManager : MonoBehaviour
 
     public int winScore = 10;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-    }
-
-    private void Start()
-    {
-        //player1.SwitchCurrentControlScheme("KBM 1", Keyboard.current);
-        //player2.SwitchCurrentControlScheme("KBM 2", Keyboard.current);        
-    }
-
+    // Instantiate and setup player references
     public void StartGame(int inputVar)
     {
         switch (inputVar) 
@@ -47,7 +37,7 @@ public class GameManager : MonoBehaviour
             case 0:
                 // Instantiate and set players
                 player1 = PlayerInput.Instantiate(player1KBMPrefab, controlScheme: "KBM 1", pairWithDevice: Keyboard.current);
-                player2 = PlayerInput.Instantiate(player2GPPrefab, controlScheme: "KBM 2", pairWithDevice: Keyboard.current);
+                player2 = PlayerInput.Instantiate(player2KBMPrefab, controlScheme: "KBM 2", pairWithDevice: Keyboard.current);
                 break;
             case 1:
                 player1 = PlayerInput.Instantiate(player1KBMPrefab, controlScheme: "KBM 1", pairWithDevice: Keyboard.current);
@@ -84,6 +74,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Method for buttons to choose input types and pair players
     public void SetupInputs(int inputVar)
     {
         menus.GameplayObject.SetActive(true);
@@ -130,6 +121,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+    // Method for settings players and stage up after one is defeated
     public void PlayerLost()
     {
         stageCraft.NextStage();

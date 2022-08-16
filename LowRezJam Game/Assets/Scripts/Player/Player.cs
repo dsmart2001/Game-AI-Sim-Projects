@@ -102,11 +102,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
     private void Update()
     {
         // Timer to enable extra gravity when in air
@@ -122,8 +117,12 @@ public class Player : MonoBehaviour
         // Timer to decrease energy
         if(Time.time > energyDeclineTime)
         {
-            EnergyBoost(false);
-            energyDeclineTime = Time.time + energyDeclineTimer;
+            StartCoroutine(EnergyBoost(false));
+
+            if(energyMultiplier != 1)
+            {
+                energyDeclineTime = Time.time + energyDeclineTimer;
+            }
         }
     }
 
@@ -283,12 +282,13 @@ public class Player : MonoBehaviour
     }
 
     // Method to increase energy of player
-    public void EnergyBoost(bool increase)
+    public IEnumerator EnergyBoost(bool increase)
     {
         switch(increase)
         {
             case true:
                 // Iterate energy and set timers
+                yield return new WaitForSeconds(0.2f);
                 energyMultiplier += energyAdd;
                 energyDeclineTime = Time.time + energyDeclineTimer;
                 movementMaxVelocity += (_movementMaxVelocity * energyAdd);
@@ -298,7 +298,7 @@ public class Player : MonoBehaviour
                     energyMultiplier = energyMax;
                 }
 
-                Debug.Log(gameObject.name + " NINJA INCREASED ENERGY TO " + energyMultiplier + ", movement max velocity = " + movementMaxVelocity);
+                Debug.Log(gameObject.name + " NINJA INCREASED ENERGY TO " + energyMultiplier + ", movement max velocity = " + movementMaxVelocity + ", timer set at: " + Time.time + " > " + energyDeclineTime);
                 break;
             case false:
                 if(energyMultiplier > 1)
@@ -306,7 +306,7 @@ public class Player : MonoBehaviour
                     energyMultiplier -= energyAdd;
                     movementMaxVelocity -= (_movementMaxVelocity * energyAdd);
 
-                    Debug.Log(gameObject.name + " NINJA DECREASED ENERGY TO " + energyMultiplier + ", movement max velocity = " + movementMaxVelocity);
+                    Debug.Log(gameObject.name + " NINJA DECREASED ENERGY TO " + energyMultiplier + ", movement max velocity = " + movementMaxVelocity + ", timer set at: " + Time.time + " > " + energyDeclineTime);
 
                     if (energyMultiplier < 1)
                     {
@@ -348,7 +348,6 @@ public class Player : MonoBehaviour
     {
         health -= damage;
         CameraShake.Shake(2f);
-
         Debug.Log(gameObject.name + " NINJA DAMAGED, HEALTH = " + health);
 
         // FAIL-STATE
@@ -360,18 +359,14 @@ public class Player : MonoBehaviour
 
         // Modify player appearance for damage
         sprite.color = Color.red;
-
         yield return new WaitForSeconds(0.5f);
-
         sprite.color = Color.white;     
     }
 
     public IEnumerator WinAppearance()
     {
         sprite.color = Color.green;
-
         yield return new WaitForSeconds(2f);
-
         sprite.color = Color.white;
     }
 }

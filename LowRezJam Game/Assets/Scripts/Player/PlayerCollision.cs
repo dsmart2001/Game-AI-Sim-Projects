@@ -47,7 +47,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if(c.gameObject.tag == "Energy" && player.energyMultiplier != player.energyMax)
         {
-            player.EnergyBoost(true);
+            StartCoroutine(player.EnergyBoost(true));
         }
 
         if (c.gameObject.tag == "Attack")
