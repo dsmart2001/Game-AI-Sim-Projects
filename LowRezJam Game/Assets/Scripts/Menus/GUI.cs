@@ -13,9 +13,6 @@ public class GUI : MonoBehaviour
     public TMP_Text player1Health;
     public TMP_Text player2Health;
 
-    public List<Image> player1Energy;
-    public List<Image> player2Energy;
-
     public TMP_Text player1Score;
     public TMP_Text player2Score;
 

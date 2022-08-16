@@ -67,6 +67,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetupInputs(int inputVar)
+    {
+        switch(inputVar)
+        {
+            // Split Keyboard
+            case 0:
+
+                break;
+            // Keyboard vs gamepad
+            case 1:
+
+                break;
+            // Gamepad vs gamepad
+            case 2:
+
+                break;
+            // Gamepad vs Keyboard
+            case 3:
+
+                break;
+        }
+    }
+
     public void PairPlayers()
     {
         player1.user.UnpairDevices();

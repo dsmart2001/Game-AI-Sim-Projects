@@ -11,6 +11,10 @@ public class Menus : MonoBehaviour
     public GameObject MenuObject;
     public GameObject SettingsObject;
     public GameObject ControlsObject;
+    public GameObject SetupPlayObject;
+
+    public GameObject KeyboardControls;
+    public GameObject ControllerControls;
 
     // Menu lists
     public List<GameObject> HideAtStart;
@@ -33,6 +37,7 @@ public class Menus : MonoBehaviour
     public void StartGame()
     {
         MenuObject.SetActive(false);
+        SetupPlayObject.SetActive(false);
         GameplayObject.SetActive(true);
 
         GM.PairPlayers();
@@ -75,6 +80,37 @@ public class Menus : MonoBehaviour
                 ControlsObject.SetActive(false);
                 break;
         }
+    }
+
+    public void ControlTypesInfo(bool gamepad)
+    {
+        switch (gamepad)
+        {
+            case true:
+                KeyboardControls.SetActive(false);
+                ControllerControls.SetActive(true);
+                break;
+            case false:
+                KeyboardControls.SetActive(true);
+                ControllerControls.SetActive(false); 
+                break;
+        }
+    }
+
+    public void SetupPlay(bool open)
+    {
+        MenuObject.SetActive(!open);
+        SetupPlayObject.SetActive(open);
+    }
+
+    public void InputTypes(int inputVar)
+    {
+        // 0 = Split Keyboard      
+        // 1 = Keyboard vs gamepad           
+        // 2 = Gamepad vs gamepad     
+        // 3 = Gamepad vs Keyboard  
+
+        GM.SetupInputs(inputVar);
     }
 
     public void Quit()
