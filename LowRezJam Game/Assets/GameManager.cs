@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
+using UnityEngine.InputSystem.Utilities;
 
 public class GameManager : MonoBehaviour
 {
@@ -78,7 +79,8 @@ public class GameManager : MonoBehaviour
     public void SetupInputs(int inputVar)
     {
         menus.GameplayObject.SetActive(true);
-
+        menus.MenuObject.SetActive(false);
+        menus.SetupPlayObject.SetActive(false);
         StartGame(inputVar);
 
         switch (inputVar)
@@ -93,10 +95,9 @@ public class GameManager : MonoBehaviour
                 player2.user.UnpairDevices();
                 InputUser.PerformPairingWithDevice(Keyboard.current, user: player1.user);
                 InputUser.PerformPairingWithDevice(Gamepad.current, user: player2.user);
-
                 break;
             // Gamepad vs gamepad
-            case 2:
+            case 2:              
                 player1.user.UnpairDevices();
                 player2.user.UnpairDevices();
                 InputUser.PerformPairingWithDevice(Gamepad.current, user: player1.user);

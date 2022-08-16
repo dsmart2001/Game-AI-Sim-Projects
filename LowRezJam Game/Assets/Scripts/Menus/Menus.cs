@@ -38,6 +38,7 @@ public class Menus : MonoBehaviour
     {
         MenuObject.SetActive(false);
         SetupPlayObject.SetActive(false);
+
     }
 
     public void ChangeMode(bool TwoPlayer)
