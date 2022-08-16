@@ -38,9 +38,6 @@ public class Menus : MonoBehaviour
     {
         MenuObject.SetActive(false);
         SetupPlayObject.SetActive(false);
-        GameplayObject.SetActive(true);
-
-        GM.PairPlayers();
     }
 
     public void ChangeMode(bool TwoPlayer)

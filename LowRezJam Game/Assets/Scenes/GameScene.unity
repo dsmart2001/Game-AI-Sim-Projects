@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32081598, g: 0.21669689, b: 0.7155349, a: 1}
+  m_IndirectSpecularColor: {r: 0.38799474, g: 0.2690154, b: 0.86090755, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2749,8 +2749,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerParent: {fileID: 1910466098}
   ActivePlayers: []
-  player1Prefab: {fileID: 7928085459559358669, guid: 9a076ac06d6c2c94d92849a52a0ff9d2, type: 3}
-  player2Prefab: {fileID: 6211677445794274718, guid: 25efa4cc79f559343bf9a979f88d5f58, type: 3}
+  player1KBMPrefab: {fileID: 7928085459559358669, guid: 9a076ac06d6c2c94d92849a52a0ff9d2, type: 3}
+  player1GPPrefab: {fileID: 2060821011081125086, guid: 4a98d4bf72fe55446b937e751cea2873, type: 3}
+  player2KBMPrefab: {fileID: 6211677445794274718, guid: 25efa4cc79f559343bf9a979f88d5f58, type: 3}
+  player2GPPrefab: {fileID: 9165814351482974862, guid: b4dd301ac6ab53f4cb9e611dcd1c358c, type: 3}
   playerScale: {x: 15, y: 10, z: 1}
   winScore: 6
 --- !u!114 &321124889
@@ -6777,7 +6779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: K v K
+  m_text: C  v K
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13400,7 +13402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: gamepad
+  m_text: controller
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

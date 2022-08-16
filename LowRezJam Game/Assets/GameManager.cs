@@ -18,9 +18,12 @@ public class GameManager : MonoBehaviour
     public List<Player> ActivePlayers;
 
     public static PlayerInput player1;
-    public GameObject player1Prefab;
+    public GameObject player1KBMPrefab;
+    public GameObject player1GPPrefab;
+
     public static PlayerInput player2;
-    public GameObject player2Prefab;
+    public GameObject player2KBMPrefab;
+    public GameObject player2GPPrefab;
 
     public Vector3 playerScale;
 
@@ -34,18 +37,32 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //player1.SwitchCurrentControlScheme("KBM 1", Keyboard.current);
-        //player2.SwitchCurrentControlScheme("KBM 2", Keyboard.current);
-
-        StartGame();
-        
+        //player2.SwitchCurrentControlScheme("KBM 2", Keyboard.current);        
     }
 
-    public void StartGame()
+    public void StartGame(int inputVar)
     {
-        // Instantiate and set players
-        player1 = PlayerInput.Instantiate(player1Prefab, controlScheme: "KBM 1", pairWithDevice: Keyboard.current);
-        player2 = PlayerInput.Instantiate(player2Prefab, controlScheme: "KBM 2", pairWithDevice: Keyboard.current);
-
+        switch (inputVar) 
+        {
+            case 0:
+                // Instantiate and set players
+                player1 = PlayerInput.Instantiate(player1KBMPrefab, controlScheme: "KBM 1", pairWithDevice: Keyboard.current);
+                player2 = PlayerInput.Instantiate(player2GPPrefab, controlScheme: "KBM 2", pairWithDevice: Keyboard.current);
+                break;
+            case 1:
+                player1 = PlayerInput.Instantiate(player1KBMPrefab, controlScheme: "KBM 1", pairWithDevice: Keyboard.current);
+                player2 = PlayerInput.Instantiate(player2GPPrefab, controlScheme: "Gamepad", pairWithDevice: Gamepad.current);
+                break;
+            case 2:
+                player1 = PlayerInput.Instantiate(player1GPPrefab, controlScheme: "Gamepad", pairWithDevice: Gamepad.current);
+                player2 = PlayerInput.Instantiate(player2GPPrefab, controlScheme: "Gamepad", pairWithDevice: Gamepad.current);
+                break;
+            case 3:
+                player1 = PlayerInput.Instantiate(player1GPPrefab, controlScheme: "Gamepad", pairWithDevice: Gamepad.current);
+                player2 = PlayerInput.Instantiate(player2KBMPrefab, controlScheme: "KBM 2", pairWithDevice: Keyboard.current);
+                break;
+        }
+    
         ActivePlayers.Add(player1.GetComponent<Player>()); 
         ActivePlayers.Add(player2.GetComponent<Player>()); 
 
@@ -69,23 +86,37 @@ public class GameManager : MonoBehaviour
 
     public void SetupInputs(int inputVar)
     {
-        switch(inputVar)
+        menus.GameplayObject.SetActive(true);
+
+        StartGame(inputVar);
+
+        switch (inputVar)
         {
             // Split Keyboard
             case 0:
-
+                PairPlayers();
                 break;
             // Keyboard vs gamepad
             case 1:
+                player1.user.UnpairDevices();
+                player2.user.UnpairDevices();
+                InputUser.PerformPairingWithDevice(Keyboard.current, user: player1.user);
+                InputUser.PerformPairingWithDevice(Gamepad.current, user: player2.user);
 
                 break;
             // Gamepad vs gamepad
             case 2:
-
+                player1.user.UnpairDevices();
+                player2.user.UnpairDevices();
+                InputUser.PerformPairingWithDevice(Gamepad.current, user: player1.user);
+                InputUser.PerformPairingWithDevice(Gamepad.current, user: player2.user);
                 break;
             // Gamepad vs Keyboard
             case 3:
-
+                player1.user.UnpairDevices();
+                player2.user.UnpairDevices();
+                InputUser.PerformPairingWithDevice(Gamepad.current, user: player1.user);
+                InputUser.PerformPairingWithDevice(Keyboard.current, user: player2.user);
                 break;
         }
     }
