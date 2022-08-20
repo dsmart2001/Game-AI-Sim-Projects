@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public PlayerInput input => GetComponent<PlayerInput>();
     private Rigidbody2D rb => GetComponent<Rigidbody2D>();
     private BoxCollider2D coll => GetComponent<BoxCollider2D>();
-
+    private PlayerAudio audio => GetComponent<PlayerAudio>();
     public GameObject attackColl;
 
     public Image sprite;
@@ -203,6 +203,8 @@ public class Player : MonoBehaviour
             }
             Debug.Log(gameObject.name + " JUMP " + jumpValue.Get<float>());
         }
+
+        StartCoroutine(audio.PlayJump());
     }
 
     // Coroutine to enact player attack
@@ -235,6 +237,8 @@ public class Player : MonoBehaviour
             inputMovement = false;
 
             Debug.Log(gameObject.name + " NINJA ATTACK");
+
+            StartCoroutine(audio.PlayAttack());
 
             yield return new WaitForSeconds(attackCollTimer);
 
@@ -288,6 +292,8 @@ public class Player : MonoBehaviour
         {
             case true:
                 // Iterate energy and set timers
+                StartCoroutine(audio.PlayEnergy());
+
                 yield return new WaitForSeconds(0.2f);
                 energyMultiplier += energyAdd;
                 energyDeclineTime = Time.time + energyDeclineTimer;
@@ -359,6 +365,9 @@ public class Player : MonoBehaviour
 
         // Modify player appearance for damage
         sprite.color = Color.red;
+
+        StartCoroutine(audio.PlayHurt());
+
         yield return new WaitForSeconds(0.5f);
         sprite.color = Color.white;     
     }

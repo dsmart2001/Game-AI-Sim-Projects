@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
+using UnityEngine.UI;
 public class Menus : MonoBehaviour
 {
     private GameManager GM => GetComponent<GameManager>();
@@ -12,6 +13,7 @@ public class Menus : MonoBehaviour
     public GameObject SettingsObject;
     public GameObject ControlsObject;
     public GameObject SetupPlayObject;
+    public GameObject AudioObject;
 
     public GameObject KeyboardControls;
     public GameObject ControllerControls;
@@ -19,6 +21,10 @@ public class Menus : MonoBehaviour
     // Menu lists
     public List<GameObject> HideAtStart;
     public List<GameObject> ShowAtStart;
+
+    public AudioMixer audio;
+    public Slider musicSlider;
+    public Slider playerSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +38,10 @@ public class Menus : MonoBehaviour
         {
             menu.SetActive(true);
         }
+
+        playerSlider.value = PlayerPrefs.GetFloat("PlayerVal", 0.75f);
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVal", 0.75f);
+
     }
 
     public void StartGame()
@@ -56,28 +66,13 @@ public class Menus : MonoBehaviour
 
     public void Settings(bool open)
     {
-        switch (open)
-        {
-            case true:
-                SettingsObject.SetActive(true);
-                break;
-            case false:
-                SettingsObject.SetActive(false);
-                break;
-        }
+        SettingsObject.SetActive(open);
     }
 
     public void Controls(bool open)
     {
-        switch (open)
-        {
-            case true:
-                ControlsObject.SetActive(true);
-                break;
-            case false:
-                ControlsObject.SetActive(false);
-                break;
-        }
+        ControlsObject.SetActive(open);
+
     }
 
     public void ControlTypesInfo(bool gamepad)
@@ -93,6 +88,22 @@ public class Menus : MonoBehaviour
                 ControllerControls.SetActive(false); 
                 break;
         }
+    }
+
+    public void Audio(bool open)
+    {
+        AudioObject.SetActive(open);
+    }
+
+    public void ChangeVolumeMusic()
+    {
+        
+        audio.SetFloat("MusicVal", Mathf.Log10(musicSlider.value) * 20);
+    }
+
+    public void ChangeVolumePlayer()
+    {
+        audio.SetFloat("PlayerVal", Mathf.Log10(playerSlider.value) * 20);
     }
 
     public void SetupPlay(bool open)
