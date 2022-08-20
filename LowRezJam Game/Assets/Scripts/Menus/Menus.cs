@@ -22,7 +22,6 @@ public class Menus : MonoBehaviour
     public List<GameObject> HideAtStart;
     public List<GameObject> ShowAtStart;
 
-
     public AudioMixer audio;
     public Slider musicSlider;
     public Slider playerSlider;
