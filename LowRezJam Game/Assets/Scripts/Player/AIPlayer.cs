@@ -5,6 +5,18 @@ using Panda;
 
 public class AIPlayer : Player
 {
+    // AI References
+    public Player playerEnemy;
+
+    // Attack variables
+    public float attackRange;
+    public float JumpPlatformRange;
+    private GameObject nearestItem;
+
+    private float attackOrFlee;
+    private List<GameObject> currentStageItems;
+    
+
     [Task]
     private bool ItemNearby()
     {

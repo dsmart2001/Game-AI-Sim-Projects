@@ -202,9 +202,10 @@ public class Player : MonoBehaviour
                 rb.AddForce(Vector2.up * jumpForce);
             }
             Debug.Log(gameObject.name + " JUMP " + jumpValue.Get<float>());
+            StartCoroutine(audio.PlayJump());
+
         }
 
-        StartCoroutine(audio.PlayJump());
     }
 
     // Coroutine to enact player attack
