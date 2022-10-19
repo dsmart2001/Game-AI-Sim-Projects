@@ -12,6 +12,7 @@ public class Menus : MonoBehaviour
     public GameObject MenuObject;
     public GameObject SettingsObject;
     public GameObject ControlsObject;
+    public GameObject PlayerTypeObject;
     public GameObject SetupPlayObject;
     public GameObject AudioObject;
 
@@ -48,19 +49,21 @@ public class Menus : MonoBehaviour
     {
         MenuObject.SetActive(false);
         SetupPlayObject.SetActive(false);
-
     }
 
     public void ChangeMode(bool TwoPlayer)
     {
-        switch (TwoPlayer)
+        PlayerTypeObject.SetActive(false);
+        
+        if(TwoPlayer)
         {
-            case true:
+            GM.SpawnPlayerTypes(TwoPlayer);
+            SetupPlay(true);
+        }
+        else
+        {
+            GM.SpawnPlayerTypes(TwoPlayer);
 
-                break;
-            case false:
-
-                break;
         }
     }
 
@@ -72,7 +75,6 @@ public class Menus : MonoBehaviour
     public void Controls(bool open)
     {
         ControlsObject.SetActive(open);
-
     }
 
     public void ControlTypesInfo(bool gamepad)

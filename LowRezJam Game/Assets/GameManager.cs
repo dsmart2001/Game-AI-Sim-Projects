@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SpawnPlayerTypes(bool playerMode)
+    {
+
+    }
+
     // Method for buttons to choose input types and pair players
     public void SetupInputs(int inputVar)
     {
